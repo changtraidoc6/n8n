@@ -1,0 +1,13 @@
+name: Daily render ping
+
+on:
+  schedule:
+    - cron: '0 23 * * *'  # Chạy mỗi ngày lúc 6h sáng giờ VN (23h UTC)
+  workflow_dispatch:       # Cho phép chạy thủ công
+
+jobs:
+  curl-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run cURL on Website
+        run: curl -I https://payper-fnk9.onrender.com
